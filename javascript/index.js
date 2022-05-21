@@ -13,12 +13,38 @@ const milDecElement = document.getElementById('milDec');
 const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
+//Actions start-stop
+btnLeftElement.addEventListener('click', () => {
+
+  if (chronometer.intervalId === null) {
+    btnLeftElement.innerText = 'STOP'
+    btnRightElement.innerText = 'SPLIT'
+    btnLeftElement.classList.add('stop')
+    btnLeftElement.classList.remove('start')
+    btnRightElement.classList.add('split')
+    btnRightElement.classList.remove('reset')
+
+    chronometer.start()
+
+  } else {
+    btnLeftElement.innerText = 'START'
+    btnRightElement.innerText = 'RESET'
+    btnLeftElement.classList.add('start')
+    btnLeftElement.classList.remove('stop')
+    btnRightElement.classList.add('reset')
+    btnRightElement.classList.remove('split')
+    chronometer.stop()
+  }
+
+})
+
 function printTime() {
-  // ... your code goes here
+    // ... your code goes here
 }
 
 function printMinutes() {
   // ... your code goes here
+
 }
 
 function printSeconds() {
